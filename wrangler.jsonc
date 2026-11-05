@@ -10,7 +10,7 @@
     { "binding": "MEDIA", "bucket_name": "lorix-media" }
   ],
   "d1_databases": [
-    { "binding": "NEXT_TAG_CACHE_D1", "database_name": "lorix-tag-cache", "database_id": "REPLACE_WITH_D1_ID" }
+    { "binding": "NEXT_TAG_CACHE_D1", "database_name": "lorix-tag-cache", "database_id": "7eabb070-ae11-41a4-89e8-f04c8365b86d" }
   ],
   "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "lorix-website" }],
   // Daily keep-alive so the free Supabase project never pauses (calls /api/keepalive).
