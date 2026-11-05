@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 import { z } from 'zod';
 import {
-  AT_COOKIE, clearSession, passwordLogin, requireStaff, revoke, setSession, staffJson,
+  AT_COOKIE, clearSession, decodeJwt, passwordLogin, requireStaff, revoke, setSession, staffJson,
 } from '@/lib/auth';
 import { renderMarkdown } from '@/lib/blog';
 
@@ -20,6 +20,17 @@ export async function login(_prev: LoginState, form: FormData): Promise<LoginSta
   const tokens = await passwordLogin(email, password);
   if (tokens === 'invalid') return { error: 'That email and password did not match.' };
   if (tokens === 'unreachable') return { error: 'Could not reach the sign-in service. Check your internet connection and try again.' };
+  // A valid Supabase account is not enough: it needs a staff profile (admin or editor).
+  const { sub } = decodeJwt(tokens.access_token);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/rest/v1/profiles?select=id&id=eq.${sub}`, {
+    headers: { apikey: process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!, authorization: `Bearer ${tokens.access_token}` },
+    cache: 'no-store',
+  }).catch(() => null);
+  const rows = res?.ok ? ((await res.json()) as unknown[]) : [];
+  if (!rows.length) {
+    await revoke(tokens.access_token);
+    return { error: 'This account does not have admin access yet. Ask an admin to add you.' };
+  }
   await setSession(tokens);
   const next = String(form.get('next') ?? '');
   redirect(next.startsWith('/admin') && !next.startsWith('//') ? next : '/admin');
