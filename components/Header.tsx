@@ -17,6 +17,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [mega, setMega] = useState(false);
   const lastY = useRef(0);
+  const anchorY = useRef(0);
   const darkHero = darkHeroRoutes.includes(pathname);
   const solid = scrolled || !darkHero || open;
 
@@ -24,8 +25,14 @@ export function Header() {
     const onScroll = () => {
       const y = window.scrollY;
       setScrolled(y > 80);
-      setHidden(y > 400 && y > lastY.current + 4);
-      if (y < lastY.current - 4 || y < 400) setHidden(false);
+      // Smooth scrolling moves a pixel or two per frame, so compare against the point where the
+      // direction last changed (not the previous frame) and only toggle after a clear 24px move.
+      const goingDown = y > lastY.current;
+      const wasGoingDown = lastY.current >= anchorY.current;
+      if (goingDown !== wasGoingDown) anchorY.current = lastY.current;
+      if (y < 400) setHidden(false);
+      else if (y - anchorY.current > 24) setHidden(true);
+      else if (anchorY.current - y > 24) setHidden(false);
       lastY.current = y;
     };
     onScroll();

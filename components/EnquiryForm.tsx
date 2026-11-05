@@ -84,7 +84,7 @@ export function EnquiryForm({ defaultType, defaultMessage, compact }: { defaultT
     <form ref={formRef} action={action} noValidate className={`card ${compact ? 'p-6' : 'p-6 sm:p-10'}`}>
       <input type="hidden" name="sourcePage" value={pathname} />
       <div className="absolute -left-[9999px]" aria-hidden="true">
-        <label>Company website<input type="text" name="company_website" tabIndex={-1} autoComplete="off" /></label>
+        <label>Leave this field empty<input type="text" name="lx_check" tabIndex={-1} autoComplete="one-time-code" defaultValue="" /></label>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">

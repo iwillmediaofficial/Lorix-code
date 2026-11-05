@@ -26,7 +26,10 @@ async function verifyTurnstile(token: string | null, ip: string) {
 
 export async function submitEnquiry(_prev: EnquiryState, form: FormData): Promise<EnquiryState> {
   // Honeypot: real people never see or fill this field.
-  if (form.get('company_website')) return { ok: true };
+  if (form.get('lx_check')) {
+    console.warn('Enquiry dropped by spam trap');
+    return { ok: true };
+  }
 
   const parsed = enquirySchema.safeParse(Object.fromEntries(form));
   if (!parsed.success) {
