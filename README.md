@@ -43,6 +43,7 @@ Other scripts:
 | `REVALIDATE_SECRET` | secret | Shared with the Supabase webhook |
 | `CRON_SECRET` | secret | Used by the daily keep-alive cron |
 | `IP_HASH_SALT` | secret | Salt for hashing IPs in the rate-limit log |
+| `NEXT_PUBLIC_MEDIA_URL` | public | `https://media.lorixenergy.com` in production; leave empty locally |
 
 Never commit `.env.local`.
 
@@ -93,7 +94,27 @@ Verify `lorixenergy.com` in Resend by adding its SPF, DKIM and DMARC DNS records
 - The privacy policy and terms are drafts and need legal review.
 - The CSP uses `'unsafe-inline'` for scripts so that pages can stay fully static (nonces would force dynamic rendering).
 
+## Admin panel (`/admin`)
+
+Sign in at `/admin/login` with a Supabase Auth account that has a row in `profiles`.
+
+- **Admins** see the dashboard, all leads (search, filter, status, private notes, call/WhatsApp/email, delete, CSV export) and the blog.
+- **Editors** see only the blog (write, preview, publish, schedule, images). Only admins can delete posts.
+
+Add a staff member:
+
+1. Supabase → Authentication → Users → **Add user** → create with email and password (tick auto-confirm).
+2. Give them a role in the SQL editor:
+   ```sql
+   insert into public.profiles (id, display_name, role)
+   select id, 'Their Name', 'admin' from auth.users where email = 'person@lorixenergy.com';
+   ```
+3. In Authentication → Sign In / Providers, turn **off** "Allow new users to sign up". Accounts without a profile row can't see anything anyway, but this keeps the user list clean.
+
+Sessions are httpOnly cookies scoped to `/admin`, refreshed by `middleware.ts`. Every data call uses the signed-in user's token, so Postgres row level security enforces who can do what.
+
+Blog images are resized in the browser (max 1600px, WebP), uploaded to the `lorix-media` R2 bucket, and served from `NEXT_PUBLIC_MEDIA_URL` (set it to `https://media.lorixenergy.com` in production) or from `/media/...` when that is not set. Saving a post refreshes the blog pages straight away.
+
 ## Next phase
 
-- `/admin` blog editor (Supabase Auth with staff roles) with image upload to R2.
 - Final product photography, the official inverter datasheet and sodium-ion copy.

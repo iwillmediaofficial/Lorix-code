@@ -134,3 +134,9 @@ html.js [data-reveal] { opacity: 0; transform: translateY(28px); }
 
 /* SplitText wraps each word; re-apply the gradient per word so it survives the split. */
 .gradient-text .split-word { background: var(--gradient-brand-h); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* Admin panel: denser, squarer controls than the marketing site */
+.admin .field { border-radius: 0.65rem; min-height: 2.75rem; padding: 0.6rem 0.9rem; }
+.admin textarea.field { border-radius: 0.65rem; }
+.admin .btn { min-height: 2.6rem; padding: 0.6rem 1.15rem; font-size: 0.9rem; }
+.admin select.field { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2308153f' stroke-width='2' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.9rem center; padding-right: 2.25rem; }

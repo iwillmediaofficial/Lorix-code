@@ -30,3 +30,11 @@ test('enquiry form validates required fields', async ({ page }) => {
   await expect(form).toBeVisible();
   await expect(form.locator('input[name="fullName"]')).toHaveAttribute('required', '');
 });
+
+test('admin pages need sign-in', async ({ page }) => {
+  await page.goto('/admin/leads');
+  await expect(page).toHaveURL(/\/admin\/login\?next=%2Fadmin%2Fleads/);
+  await expect(page.getByRole('heading', { name: 'Admin sign in' })).toBeVisible();
+  const upload = await page.request.post('/admin/upload', { maxRedirects: 0 });
+  expect(upload.status()).toBe(307);
+});

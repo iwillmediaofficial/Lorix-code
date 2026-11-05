@@ -1,8 +1,13 @@
 import Link from 'next/link';
 import { Chevron } from '@/components/icons';
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
 
 export default function NotFound() {
   return (
+    <>
+    <Header />
+    <main id="main">
     <section className="on-dark relative grid min-h-[80svh] place-items-center overflow-hidden bg-navy-900 px-5 pt-20 text-center text-white">
       <div className="pattern-x absolute inset-0" aria-hidden="true" />
       <div className="relative">
@@ -15,5 +20,8 @@ export default function NotFound() {
         </div>
       </div>
     </section>
+    </main>
+    <Footer />
+    </>
   );
 }
