@@ -3,6 +3,7 @@
 create schema if not exists private;
 revoke all on schema private from public, anon, authenticated;
 create table private.settings (key text primary key, value text not null);
+alter table private.settings enable row level security;
 
 -- Set the hash once per environment (value = sha256 hex of SERVER_DB_TOKEN):
 -- insert into private.settings values ('server_token_sha256', '<hash>')
