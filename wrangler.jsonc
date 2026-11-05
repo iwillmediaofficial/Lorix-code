@@ -15,5 +15,6 @@
   "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "lorix-website" }],
   // Daily keep-alive so the free Supabase project never pauses (calls /api/keepalive).
   "triggers": { "crons": ["30 0 * * *"] },
+  "vars": { "NEXT_PUBLIC_SITE_URL": "https://lorixenergy.com" },
   "observability": { "enabled": true }
 }

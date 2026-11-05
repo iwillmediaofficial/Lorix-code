@@ -69,6 +69,15 @@ npx wrangler r2 bucket create lorix-media
 npx wrangler d1 create lorix-tag-cache        # copy the database_id into wrangler.jsonc
 ```
 
+
+### Automatic deploys (recommended, works from Windows)
+
+OpenNext builds most reliably on Linux, so let Cloudflare build the site from GitHub:
+
+1. Cloudflare dashboard → Workers & Pages → Create → Import a repository → pick `Lorix-code`.
+2. Build command: `pnpm cf:build`. Deploy command: `npx opennextjs-cloudflare deploy`.
+3. Every push to `main` then builds and deploys. Public build values come from `.env.production` (committed; public values only).
+
 Then set the secrets (one per variable in the "secret" rows above):
 
 ```bash

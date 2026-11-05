@@ -5,6 +5,7 @@ node_modules
 out
 .env*
 !.env.example
+!.env.production
 .dev.vars
 test-results
 playwright-report
