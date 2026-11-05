@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "lorix-website",
+  "main": "custom-worker.ts",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
+  "r2_buckets": [
+    { "binding": "NEXT_INC_CACHE_R2_BUCKET", "bucket_name": "lorix-next-cache" },
+    { "binding": "MEDIA", "bucket_name": "lorix-media" }
+  ],
+  "d1_databases": [
+    { "binding": "NEXT_TAG_CACHE_D1", "database_name": "lorix-tag-cache", "database_id": "REPLACE_WITH_D1_ID" }
+  ],
+  "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "lorix-website" }],
+  // Daily keep-alive so the free Supabase project never pauses (calls /api/keepalive).
+  "triggers": { "crons": ["30 0 * * *"] },
+  "observability": { "enabled": true }
+}

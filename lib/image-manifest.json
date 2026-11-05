@@ -1,0 +1,92 @@
+{
+  "inverter-wall": {
+    "width": 1254,
+    "height": 1104,
+    "sizes": [
+      480,
+      768,
+      1200
+    ],
+    "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoQAA4AA4BaJZwCw7Du30If8gAA/rhBG+JiAN1R3Fcsqh1TFEGebH9iBkQxVbWQ11fL9sYfVoGEEHfPnXd2uyFuDIKJuA5RAAA="
+  },
+  "battery-room": {
+    "width": 1094,
+    "height": 1007,
+    "sizes": [
+      480,
+      768,
+      1094
+    ],
+    "blur": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAQAgCdASoQAA8AA4BaJYwCdAD1aZ/lrQ4AAP5tGbNQqyUZDZ5bnhi9RXtG/yrX5NVYxuKFDwmp/tZ1qwkGO3tB5ZqutVsGkXPAD6MUQaiII3O9PD0yhxlEtWCsXQ5DoPk+kwyItQKNxdZ9yM/VAAAA"
+  },
+  "solar-system": {
+    "width": 627,
+    "height": 1104,
+    "sizes": [
+      480,
+      627
+    ],
+    "blur": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAAAwBACdASoQABwAPu1iqU2ppaOiMAgBMB2JZACdEfqgPIJu1cZdLLixJKAA3lHsxTtY+3t3cmv6hA41WUqdvemDvVx0ylnsuPF0AhBNOpkz12VB/vd7hq1Yy4hk6dh8yWjhZyNOus7KNZECwH25m/4CDeZwTfXWRCliGs54RfB4vHvM13ReJqh297JYUjzKmT0kW3BoqAA="
+  },
+  "storage-stack": {
+    "width": 1351,
+    "height": 640,
+    "sizes": [
+      480,
+      768,
+      1200,
+      1351
+    ],
+    "blur": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoQAAgAA4BaJQBOgCG8etBIAAD+7Uiq7xAehlLN9/8ZtSuE2k4djV7s1QekWSjl7ko9/4AA"
+  },
+  "home-lifestyle": {
+    "width": 1122,
+    "height": 827,
+    "sizes": [
+      480,
+      768,
+      1122
+    ],
+    "blur": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAQAgCdASoQAAwAA4BaJaACdAEWzgep0Uw0AP6Hu15VbZoWRYJ+ufXshEtXsttKRlcUiOuUUe2hD1+rie6565Fj9evfxzkYQZPeyxfNcIHXl/ZygRzIkXXi7GWp8y219/ICwAAA"
+  },
+  "home-night": {
+    "width": 1122,
+    "height": 715,
+    "sizes": [
+      480,
+      768,
+      1122
+    ],
+    "blur": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAQAgCdASoQAAoAA4BaJbACdAD8uvvvEOKAAPz56UHMOgEaIdaIjKfNKfa35hE3Y/ATFrCc/VoYtB9FrmZqbXzag4jxtIjyNyQf9vtU2EQoI3f5wb8+5QSKUrrfxB+AlNa6Wcoa/ge47TdVujNr80IxG/1I67YAAAA="
+  },
+  "bms-chip": {
+    "width": 1129,
+    "height": 702,
+    "sizes": [
+      480,
+      768,
+      1129
+    ],
+    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAACwAQCdASoQAAoAA4BaJbACdACAwXtQAP7zJ2Alcoooz0eNKJsThzlTL+FRhsZbIMFQDUhLrPvujZrRO0m5JNIw8HSYrEmny3LjsIxzap9rLTyuYgAAAA=="
+  },
+  "battery-16kwh": {
+    "width": 1254,
+    "height": 765,
+    "sizes": [
+      480,
+      768,
+      1200
+    ],
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoQAAoAA4BaJYwCw7EUr+ZzucEAAP7YPI6XpnF1VA/lzSF98qTffxw7LJLrcTTR+VTDQXIPiJuFt1viBCv+PXGpbsmV6gSIvVFoGuMfAAA="
+  },
+  "modular-system": {
+    "width": 1120,
+    "height": 576,
+    "sizes": [
+      480,
+      768,
+      1120
+    ],
+    "blur": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACwAQCdASoQAAgAA4BaJZwAAudaHMkAAP7YOjJsTT6rstQXRTemkbXUCu0OyVcXyD3kEzKAVZ0eZZAUsAA="
+  }
+}

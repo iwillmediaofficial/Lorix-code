@@ -1,0 +1,92 @@
+[
+  {
+    "out": "inverter-wall",
+    "src": "Lorix Energy Wall-Mounted Inverter.png",
+    "crop": [
+      0,
+      0.12,
+      1,
+      1
+    ]
+  },
+  {
+    "out": "battery-room",
+    "src": "Lorix Energy Home Storage Poster.png",
+    "crop": [
+      0,
+      0.3,
+      1,
+      1
+    ]
+  },
+  {
+    "out": "solar-system",
+    "src": "Lorix Energy Solar Home System.png",
+    "crop": [
+      0.5,
+      0.12,
+      1,
+      1
+    ]
+  },
+  {
+    "out": "storage-stack",
+    "src": "Lorix Energy Home Storage Solution.png",
+    "crop": [
+      0,
+      0.45,
+      1,
+      1
+    ]
+  },
+  {
+    "out": "home-lifestyle",
+    "src": "Lorix Energy Home Power Ad.png",
+    "crop": [
+      0,
+      0.34,
+      1,
+      0.93
+    ]
+  },
+  {
+    "out": "home-night",
+    "src": "Lorix Energy_ Powering Home Comfort.png",
+    "crop": [
+      0,
+      0.42,
+      1,
+      0.93
+    ]
+  },
+  {
+    "out": "bms-chip",
+    "src": "Lorix Energy Advanced BMS Poster.png",
+    "crop": [
+      0.05,
+      0.3,
+      0.95,
+      0.86
+    ]
+  },
+  {
+    "out": "battery-16kwh",
+    "src": "Lorix Energy 16kWh Battery Showcase.png",
+    "crop": [
+      0,
+      0.21,
+      1,
+      0.82
+    ]
+  },
+  {
+    "out": "modular-system",
+    "src": "Modular Energy System Expansion Poster.png",
+    "crop": [
+      0,
+      0.48,
+      1,
+      0.89
+    ]
+  }
+]
