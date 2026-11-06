@@ -47,6 +47,10 @@ export function Header() {
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
   }, [open]);
 
   const linkCls = (href: string) => {
@@ -57,6 +61,7 @@ export function Header() {
   };
 
   return (
+    <>
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[transform,background-color,box-shadow] duration-500 ${
         hidden && !open ? '-translate-y-full' : 'translate-y-0'
@@ -117,9 +122,10 @@ export function Header() {
         </div>
       </div>
 
+    </header>
       <div
         id="mobile-menu"
-        className={`fixed inset-x-0 top-[4.5rem] bottom-0 overflow-y-auto bg-white transition-[opacity,visibility] duration-300 lg:hidden ${
+        className={`fixed inset-x-0 top-[4.5rem] bottom-0 z-[45] overflow-y-auto overscroll-contain bg-white transition-[opacity,visibility] duration-300 lg:hidden ${
           open ? 'visible opacity-100' : 'invisible opacity-0'
         }`}
       >
@@ -145,6 +151,6 @@ export function Header() {
           </Link>
         </nav>
       </div>
-    </header>
+    </>
   );
 }

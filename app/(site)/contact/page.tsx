@@ -25,16 +25,16 @@ export default function ContactPage() {
             ].map((c) => (
               <a key={c.t} href={c.h} className="card flex gap-4 p-6 transition-shadow hover:shadow-[0_20px_50px_-30px_rgb(8_21_63/0.4)]" {...(c.h.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
                 <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-mist-50 text-blue-600">{c.i}</span>
-                <span>
+                <span className="min-w-0">
                   <span className="block font-bold">{c.t}</span>
-                  <span className="block text-blue-600">{c.v}</span>
+                  <span className="block break-words text-blue-600">{c.v}</span>
                   <span className="mt-1 block text-sm text-slate-500">{c.d}</span>
                 </span>
               </a>
             ))}
             <div className="card flex gap-4 p-6">
               <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-mist-50 text-blue-600"><IconPin /></span>
-              <address className="not-italic text-sm text-slate-500">
+              <address className="min-w-0 not-italic text-sm text-slate-500">
                 <span className="block font-bold text-navy-900">{site.office.label}</span>{site.office.lines.join(', ')}
                 <span className="mt-3 block font-bold text-navy-900">{site.factory.label}</span>{site.factory.lines.join(', ')}
               </address>

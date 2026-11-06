@@ -24,11 +24,11 @@ export function SizingTool() {
         <ul className="mt-6 grid gap-3 sm:grid-cols-2">
           {appliances.map((a) => (
             <li key={a.id} className={`flex items-center justify-between gap-3 rounded-xl border px-4 py-3 transition-colors ${qty[a.id] ? 'border-blue-500/40 bg-mist-50' : 'border-line'}`}>
-              <span>
+              <span className="min-w-0">
                 <span className="block font-semibold leading-tight">{a.label}</span>
                 <span className="text-xs text-slate-500">~{a.watts} W each</span>
               </span>
-              <span className="flex items-center gap-1" role="group" aria-label={`${a.label} quantity`}>
+              <span className="flex shrink-0 items-center gap-1" role="group" aria-label={`${a.label} quantity`}>
                 <button type="button" onClick={() => set(a.id, -1)} className="grid h-9 w-9 place-items-center rounded-full border border-line text-lg font-bold hover:border-blue-500" aria-label={`Remove one ${a.label}`}>−</button>
                 <output className="w-7 text-center font-bold tabular-nums" aria-live="polite">{qty[a.id]}</output>
                 <button type="button" onClick={() => set(a.id, 1)} className="grid h-9 w-9 place-items-center rounded-full border border-line text-lg font-bold hover:border-blue-500" aria-label={`Add one ${a.label}`}>+</button>
@@ -38,7 +38,7 @@ export function SizingTool() {
         </ul>
         <h3 className="mt-10 text-xl font-bold">2. How many hours of backup do you need?</h3>
         <div className="mt-5 flex items-center gap-5">
-          <input type="range" min={1} max={12} step={1} value={hours} onChange={(e) => setHours(Number(e.target.value))} className="w-full accent-blue-500" aria-label="Backup hours" />
+          <input type="range" min={1} max={12} step={1} value={hours} onChange={(e) => setHours(Number(e.target.value))} className="h-10 w-full cursor-pointer accent-blue-500" aria-label="Backup hours" />
           <span className="w-20 shrink-0 text-right text-2xl font-extrabold tabular-nums">{hours} h</span>
         </div>
       </div>

@@ -22,30 +22,30 @@ export function Footer() {
 
         <div>
           <h2 className="eyebrow mb-4 text-peri-200">Products</h2>
-          <ul className="space-y-3 text-[0.95rem]">
+          <ul className="space-y-1 text-[0.95rem]">
             {products.map((p) => (
-              <li key={p.slug}><Link className="hover:text-white" href={`/products/${p.slug}`}>{p.name}</Link></li>
+              <li key={p.slug}><Link className="inline-block py-1.5 hover:text-white" href={`/products/${p.slug}`}>{p.name}</Link></li>
             ))}
-            <li><Link className="hover:text-white" href="/products#sizing">System sizing tool</Link></li>
+            <li><Link className="inline-block py-1.5 hover:text-white" href="/products#sizing">System sizing tool</Link></li>
           </ul>
         </div>
 
         <div>
           <h2 className="eyebrow mb-4 text-peri-200">Company</h2>
-          <ul className="space-y-3 text-[0.95rem]">
-            <li><Link className="hover:text-white" href="/about">About us</Link></li>
-            <li><Link className="hover:text-white" href="/technology">Technology</Link></li>
-            <li><Link className="hover:text-white" href="/blog">Blog</Link></li>
-            <li><Link className="hover:text-white" href="/contact?type=partner">Become a partner</Link></li>
-            <li><Link className="hover:text-white" href="/contact">Contact</Link></li>
+          <ul className="space-y-1 text-[0.95rem]">
+            <li><Link className="inline-block py-1.5 hover:text-white" href="/about">About us</Link></li>
+            <li><Link className="inline-block py-1.5 hover:text-white" href="/technology">Technology</Link></li>
+            <li><Link className="inline-block py-1.5 hover:text-white" href="/blog">Blog</Link></li>
+            <li><Link className="inline-block py-1.5 hover:text-white" href="/contact?type=partner">Become a partner</Link></li>
+            <li><Link className="inline-block py-1.5 hover:text-white" href="/contact">Contact</Link></li>
           </ul>
         </div>
 
-        <div className="space-y-4 text-[0.95rem]">
+        <div className="space-y-1 text-[0.95rem]">
           <h2 className="eyebrow mb-4 text-peri-200">Get in touch</h2>
-          <a href={site.phoneHref} className="flex items-center gap-3 hover:text-white"><IconPhone className="h-5 w-5 text-cyan-400" />{site.phone}</a>
-          <a href={`mailto:${site.email}`} className="flex items-center gap-3 hover:text-white"><IconMail className="h-5 w-5 text-cyan-400" />{site.email}</a>
-          <a href={whatsappLink('Hi LORIX Energy, I would like to know more about your products.')} className="flex items-center gap-3 hover:text-white" target="_blank" rel="noopener noreferrer">
+          <a href={site.phoneHref} className="flex min-h-10 items-center gap-3 [overflow-wrap:anywhere] hover:text-white"><IconPhone className="h-5 w-5 text-cyan-400" />{site.phone}</a>
+          <a href={`mailto:${site.email}`} className="flex min-h-10 items-center gap-3 [overflow-wrap:anywhere] hover:text-white"><IconMail className="h-5 w-5 text-cyan-400" />{site.email}</a>
+          <a href={whatsappLink('Hi LORIX Energy, I would like to know more about your products.')} className="flex min-h-10 items-center gap-3 [overflow-wrap:anywhere] hover:text-white" target="_blank" rel="noopener noreferrer">
             <IconWhatsApp className="h-5 w-5 text-green-400" />Chat on WhatsApp
           </a>
           <div className="flex gap-3">
@@ -63,8 +63,8 @@ export function Footer() {
         <div className="container-x flex flex-col gap-3 py-6 text-sm text-white/60 md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} {site.legalName}. {site.tagline}</p>
           <div className="flex gap-6">
-            <Link href="/privacy-policy" className="hover:text-white">Privacy policy</Link>
-            <Link href="/terms" className="hover:text-white">Terms</Link>
+            <Link href="/privacy-policy" className="inline-block py-2 hover:text-white">Privacy policy</Link>
+            <Link href="/terms" className="inline-block py-2 hover:text-white">Terms</Link>
           </div>
         </div>
       </div>
