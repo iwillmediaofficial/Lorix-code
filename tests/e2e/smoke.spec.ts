@@ -38,3 +38,15 @@ test('admin pages need sign-in', async ({ page }) => {
   const upload = await page.request.post('/admin/upload', { maxRedirects: 0 });
   expect(upload.status()).toBe(307);
 });
+
+test('mobile menu opens and navigates', async ({ page, isMobile }) => {
+  test.skip(!isMobile, 'phone layout only');
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Open menu' }).click();
+  const menu = page.locator('#mobile-menu');
+  await expect(menu).toBeVisible();
+  expect((await menu.boundingBox())!.height).toBeGreaterThan(300);
+  await menu.getByRole('link', { name: 'Technology' }).click();
+  await expect(page).toHaveURL(/\/technology$/);
+  await expect(menu).toBeHidden();
+});
