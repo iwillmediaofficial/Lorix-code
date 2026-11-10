@@ -159,10 +159,13 @@ export default async function HomePage() {
             </div>
             <div className="mt-12 grid gap-6 md:grid-cols-3">
               {posts.map((p) => (
-                <Link key={p.slug} href={`/blog/${p.slug}`} className="group card p-7 transition-shadow hover:shadow-[0_24px_60px_-30px_rgb(8_21_63/0.35)]" data-reveal>
+                <Link key={p.slug} href={`/blog/${p.slug}`} className="group card overflow-hidden transition-shadow hover:shadow-[0_24px_60px_-30px_rgb(8_21_63/0.35)]" data-reveal>
+                  {p.cover_url && <img src={p.cover_url} alt={p.cover_alt ?? ''} loading="lazy" decoding="async" className="aspect-[16/9] w-full bg-mist-50 object-cover" />}
+                  <div className="p-7">
                   <p className="text-sm text-slate-500">{formatDate(p.published_at)} · {p.reading_minutes ?? 4} min read</p>
                   <h3 className="mt-3 text-xl font-bold group-hover:text-blue-600">{p.title}</h3>
                   <p className="mt-3 line-clamp-3 text-slate-500">{p.excerpt}</p>
+                  </div>
                 </Link>
               ))}
             </div>

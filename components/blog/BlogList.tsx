@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 
-type Item = { slug: string; title: string; excerpt: string; tags: string[]; date: string; minutes: number };
+type Item = { slug: string; title: string; excerpt: string; tags: string[]; date: string; minutes: number; cover?: string | null; coverAlt?: string | null };
 
 /** Filters already-loaded posts in the browser: no database calls. */
 export function BlogList({ posts }: { posts: Item[] }) {
@@ -23,11 +23,14 @@ export function BlogList({ posts }: { posts: Item[] }) {
       </div>
       <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {shown.map((p) => (
-          <Link key={p.slug} href={`/blog/${p.slug}`} className="group card flex flex-col p-7 transition-shadow hover:shadow-[0_24px_60px_-30px_rgb(8_21_63/0.35)]">
+          <Link key={p.slug} href={`/blog/${p.slug}`} className="group card flex flex-col overflow-hidden transition-shadow hover:shadow-[0_24px_60px_-30px_rgb(8_21_63/0.35)]">
+            {p.cover && <img src={p.cover} alt={p.coverAlt ?? ''} loading="lazy" decoding="async" className="aspect-[16/9] w-full bg-mist-50 object-cover" />}
+            <div className="flex flex-1 flex-col p-7">
             <div className="flex flex-wrap gap-2">{p.tags.map((t) => <span key={t} className="rounded-full bg-mist-50 px-3 py-1 text-xs font-bold text-blue-600">{t}</span>)}</div>
             <h2 className="mt-4 text-xl font-bold group-hover:text-blue-600">{p.title}</h2>
             <p className="mt-3 flex-1 text-slate-500">{p.excerpt}</p>
             <p className="mt-6 text-sm text-slate-500">{p.date} · {p.minutes} min read</p>
+            </div>
           </Link>
         ))}
       </div>
