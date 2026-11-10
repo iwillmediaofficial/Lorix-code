@@ -48,6 +48,11 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             <p className="mt-8 text-sm text-white/60">{post.author_name} · {formatDate(post.published_at)} · {post.reading_minutes ?? 4} min read</p>
           </div>
         </header>
+        {post.cover_url && (
+          <div className="container-x max-w-4xl pt-12 lg:pt-16">
+            <img src={post.cover_url} alt={post.cover_alt ?? ''} decoding="async" fetchPriority="high" className="aspect-[16/9] w-full rounded-2xl bg-mist-50 object-cover" />
+          </div>
+        )}
         <div className="container-x grid gap-12 py-16 lg:grid-cols-[1fr_16rem] lg:py-20">
           <div className="prose-lorix text-lg text-navy-900" dangerouslySetInnerHTML={{ __html: html }} />
           {toc.length > 1 && (
@@ -67,10 +72,13 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             <h2 className="text-h3">Keep reading</h2>
             <div className="mt-8 grid gap-6 md:grid-cols-2">
               {related.map((p) => (
-                <Link key={p.slug} href={`/blog/${p.slug}`} className="group card p-7">
+                <Link key={p.slug} href={`/blog/${p.slug}`} className="group card overflow-hidden">
+                  {p.cover_url && <img src={p.cover_url} alt={p.cover_alt ?? ''} loading="lazy" decoding="async" className="aspect-[16/9] w-full bg-mist-50 object-cover" />}
+                  <div className="p-7">
                   <h3 className="text-xl font-bold group-hover:text-blue-600">{p.title}</h3>
                   <p className="mt-3 text-slate-500">{p.excerpt}</p>
                   <span className="mt-5 inline-flex items-center gap-2 font-bold">Read <Chevron /></span>
+                  </div>
                 </Link>
               ))}
             </div>

@@ -18,7 +18,7 @@ export default async function BlogPage() {
       <section className="py-16 lg:py-24">
         <div className="container-x">
           {posts.length ? (
-            <BlogList posts={posts.map((p) => ({ slug: p.slug, title: p.title, excerpt: p.excerpt, tags: p.tags, date: formatDate(p.published_at), minutes: p.reading_minutes ?? 4 }))} />
+            <BlogList posts={posts.map((p) => ({ slug: p.slug, title: p.title, excerpt: p.excerpt, tags: p.tags, date: formatDate(p.published_at), minutes: p.reading_minutes ?? 4, cover: p.cover_url, coverAlt: p.cover_alt }))} />
           ) : (
             <p className="text-lg text-slate-500">Our first articles are on the way. Check back soon.</p>
           )}
